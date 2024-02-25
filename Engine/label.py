@@ -31,7 +31,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from .window import Window 
+from .window import Window
 import pygame as p
 
 # Инициализация pygame
@@ -79,7 +79,9 @@ class Label(Window):
         self.image = self.font.render(self.text, True, (0, 0, 0))
         self.win.blit(self.image, (self.x, self.y))
 
-    def changeCoord(self, x, y):
+        return self.font.render(self.text, True, (0, 0, 0))
+
+    def setCoord(self, x, y):
         """
         Изменение расположения обьекта
 

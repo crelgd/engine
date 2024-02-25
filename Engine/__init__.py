@@ -19,23 +19,30 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
+import os
+
 # Инициализация всех файлов
 
-# 
+# Основной класс для всех обьктов\методов
 from .window import Window 
 
+# Обьекты
 from .label import Label
+from .button import Button
 
 # При импорте всех файлов будут импортироваться эти функции:
 __all__ = [
-    'Window', 'Label'
+    'Window', 
+    'Label',
+    'Button'
 ]
 
 # Версия пакета
-__version__ = '1.0.0'
+__version__ = '1.1'
 
 # Проверка зависимостей
 try:
     import pygame
 except ImportError:
+    os.system('pip install pygame')
     raise ImportError("Pygame library is required to use this package.")
