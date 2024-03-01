@@ -21,26 +21,26 @@
 
 import os
 
-# Инициализация всех файлов
+# Initializing all files
 
-# Основной класс для всех обьктов\методов
+# Main class for all objects/methods
 from .window import Window 
 
-# Обьекты
+# Objects
 from .label import Label
 from .button import Button
 
-# При импорте всех файлов будут импортироваться эти функции:
+# When importing all files, these functions will be imported:
 __all__ = [
     'Window', 
     'Label',
     'Button'
 ]
 
-# Версия пакета
+# Package version
 __version__ = '1.1'
 
-# Проверка зависимостей
+# Checking dependencies
 try:
     import pygame
 except ImportError:

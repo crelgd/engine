@@ -1,12 +1,12 @@
-# Название: Код для управления окном 
-# 
-# Описание:
-# Этот код содержит класс Window для создания окна 
-# Он предоставляет основные методы для управления окном, фоном и отображением обьектов
-# 
-# Автор: crelgd <decrelgd@gmail.com>
-# 
-# Лицензия:
+# Title: Code to control the window
+#
+# Description:
+# This code contains the Window class to create a window
+# It provides basic methods for controlling the window, background and display of objects
+#
+# Author: crelgd <decrelgd@gmail.com>
+#
+# License:
 # MIT License
 # 
 # Copyright (c) 2024 crelgd
@@ -32,23 +32,23 @@
 from pygame import *
 import os
 
-# Получаем путь к директории, где находится этот скрипт
+# We get the path to the directory where this script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Изменяем текущую рабочую директорию на директорию с файлом
+# Change the current working directory to the directory with the file
 os.chdir(os.path.join(script_dir, 'res'))
 
 class Window:
     """
-    Класс для создания и управления игровым окном.
+    A class for creating and managing a game window.
     """
 
     def __init__(self, winTitle='Engine'):
         """
-        Инициализация окна.
+        Initializing the window.
 
-        Параметры:
-        - winTitle (str): Название окна.
+        Options:
+        - winTitle (str): Window title.
         """
 
         self.x = 300
@@ -59,42 +59,42 @@ class Window:
         self.clock = time.Clock()
         self.run = True
 
-        # Создаем окно с размерами self.x, self.y
+        # Create a window with dimensions self.x, self.y
         self.win = display.set_mode((self.x, self.y))
 
-        # Загружаем фоновое изображение и изменяем его размеры под размеры окна
+        # Load a background image and resize it to fit the window
         self.background = transform.scale(image.load("bg.png"), (self.x, self.y))
 
-        # Устанавливаем иконку окна
+        # Setting the window icon
         display.set_icon(image.load('ico.png'))
 
     def setTitle(self, title):
         """
-        Устанавливает заголовок окна.
+        Sets the window title.
 
-        Параметры:
-        - title (str): Новый заголовок окна.
+        Options:
+        - title (str): New window title.
         """
 
         display.set_caption(title)
 
     def setBG(self, obj):
         """
-        Устанавливает новое фоновое изображение окна.
+        Sets a new window background image.
 
-        Параметры:
-        - obj): Новое фоновое изображение.
+        Options:
+        - obj): New background image.
         """
 
         self.background = transform.scale(obj, (self.x, self.y))
 
     def resize(self, x, y):
         """
-        Изменяет размеры окна.
+        Resizes the window.
 
-        Параметры:
-        - x (int): Новая ширина окна.
-        - y (int): Новая высота окна.
+        Options:
+        - x (int): New window width.
+        - y (int): New window height.
         """
 
         self.x = x
@@ -103,16 +103,16 @@ class Window:
         self.background = transform.scale(self.background, (x, y))
 
     def create(self):
-        """Создает окно с текущими настройками."""
+        """Creates a window with the current settings."""
 
         display.set_caption(self.winTitle)
 
     def winLoop(self, draw_functions=None):
         """
-        Основной цикл обновления окна.
+        The main window update cycle.
 
-        Параметры:
-        - draw_functions: Список функций для отрисовки дополнительных объектов.
+        Options:
+        - draw_functions: List of functions for rendering additional objects.
         """
 
         while self.run:
@@ -120,10 +120,10 @@ class Window:
                 if e.type == QUIT:
                     self.run = False
 
-            # Отрисовка фонового изображения
+            # Rendering a background image
             self.win.blit(self.background, (0, 0))
             
-            # Вызов функций отрисовки
+            # Calling rendering functions
             if draw_functions: 
                 for func in draw_functions:
                     func()  
@@ -131,10 +131,9 @@ class Window:
             display.update()
             self.clock.tick(self.FPS)
 
-# Тестирование
+# Testing
 if __name__ == '__main__':
     window = Window()
     window.create()
-    # Тут код...
     window.setBG(image.load("res/bg.png"))
     window.winLoop()

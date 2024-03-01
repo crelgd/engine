@@ -1,30 +1,30 @@
-# Текст 1: создания программы через класс
+# Test 1: creating a program through a class
 
-# Импорт модулей движка
+# Import engine modules
 from Engine import Window
 from Engine import Label
 
 class Main():
     """
-    Класс для инициализации и рисования обьектов и окна
+    Class for initializing and drawing objects and windows
     """
 
     def __init__(self):
         """
-        Инициализация окна
-        Создание окна и текста
+        Initializing a window
+        Creating a window and text
         """
-        self.window = Window() # Инициализация окна (все по умолчанию)
-        self.label = Label() # Иницилизация текста (все по умолчанию)
+        self.window = Window() # Window initialization (all default)
+        self.label = Label() # Initialize text (all default)
 
     def render(self):
         """
-        Рисование обьектов
+        Drawing objects
         """
 
-        self.label.render() # Рисование текста
+        self.label.render() # Drawing text
 
 if __name__ == "__main__":
     main = Main()
-    main.window.create() # создание окна
-    main.window.winLoop([main.render]) # рисование всего что есть в self.render
+    main.window.create() # creating a window
+    main.window.winLoop([main.render]) # drawing everything in self.render

@@ -1,14 +1,14 @@
-# Название: Код для управления текстом
-# 
-# Описание:
-# Этот код содержит класс Label для создания и управления текстом
-# Он предоставляет основные методы управления текстом:
-# - расположения текстом
-# - и отображения текста
-# 
-# Автор: crelgd <decrelgd@gmail.com>
-# 
-# Лицензия:
+# Title: Code for text manipulation
+#
+# Description:
+# This code contains a Label class for creating and manipulating text
+# It provides basic text manipulation methods:
+# - text locations
+# - and display text
+#
+# Author: crelgd <decrelgd@gmail.com>
+#
+# License:
 # MIT License
 # 
 # Copyright (c) 2024 crelgd
@@ -34,24 +34,24 @@
 from .window import Window
 import pygame as p
 
-# Инициализация pygame
+# Initializing pygame
 p.init()
 
 class Label(Window):
     """
-    Класс для создания и упралением текстом
+    Class for creating and managing text
     """
 
     def __init__(self, text='Label', size = 16, font_name='Roboto'):
         """
-        Инициализация окна.
+        Initializing the window.
 
-        Параметры:
-        - text (str): Текст который будет отображатся.
-        - size (int): Размер текста.
-        - font_name (int): Название шрифта.
+        Options:
+        - text (str): The text that will be displayed.
+        - size (int): Text size.
+        - font_name (int): Font name.
 
-        * ШРИФТЫ КОТОРЫХ НЕТ В ОС НЕ БУДУТ ОТОБРАЖАТЬСЯ!
+        * FONTS THAT ARE NOT IN THE OS WILL NOT BE DISPLAYED!
         """
 
         super().__init__()
@@ -61,20 +61,18 @@ class Label(Window):
         self.font_size = size
         self.image = ''
 
-        # Инициализация рамположения текста
+        # Initializing text position
         self.x = 0
         self.y = 0
 
-        # Инициализация шрифтов
-        # Принимает параметры: 
-        # - self.font_name: Название шрифта
-        # - self.font_size: Размер шрифта
+        # Initialize fonts
+        # Accepts parameters:
+        # - self.font_name: Font name
+        # - self.font_size: Font size
         self.font = p.font.SysFont(self.font_name, self.font_size)
 
     def render(self):
-        """
-        Отображение обьетов
-        """
+        """Display of values"""
 
         self.image = self.font.render(self.text, True, (0, 0, 0))
         self.win.blit(self.image, (self.x, self.y))
@@ -83,11 +81,11 @@ class Label(Window):
 
     def setCoord(self, x, y):
         """
-        Изменение расположения обьекта
+        Changing the location of an object
 
-        Параметры:
-        - x (int): Новая ширина окна.
-        - y (int): Новая высота окна.
+        Options:
+        - x (int): New window width.
+        - y (int): New window height.
         """
 
         self.x = x
@@ -96,7 +94,7 @@ class Label(Window):
         self.render()
         self.win.blit(self.image, (self.x, self.y))
 
-# Тестирование кода
+# Code testing
 if __name__ == '__main__':
     window = Window()
     window.create()

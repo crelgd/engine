@@ -1,15 +1,15 @@
-# Название: Код для управления кнопками
-# 
-# Описание:
-# Этот код содержит класс Button для создания и управления кнопками
-# Он предоставляет основные методы управления кнопками:
-# - расположения кнопки
-# - при нажатии на кнопку будет происходить указаная функция
-# - отображения кнопок
-# 
-# Автор: crelgd <decrelgd@gmail.com>
-# 
-# Лицензия:
+# Title: Code for controlling buttons
+#
+# Description:
+# This code contains the Button class for creating and managing buttons
+# It provides basic button management methods:
+# - button location
+# - when you press the button, the specified function will occur
+# - display buttons
+#
+# Author: crelgd <decrelgd@gmail.com>
+#
+# License:
 # MIT License
 # 
 # Copyright (c) 2024 crelgd
@@ -37,26 +37,26 @@ import pygame
 from .window import Window 
 from .label import Label
 
-# Инициализация pygame
+# Initializing pygame
 pygame.init()
 
-# Дефолтные цвета
+# Default colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (200, 200, 200)
 
 class Button(Window):
     """
-    Класс для создания и управления кнопками
+    Class for creating and managing buttons
     """
 
     def __init__(self, text="Button", color=GRAY):
         """
-        Инициализация кнопки.
+        Initializing the button.
 
-        Параметры:
-        - text (str): Текст, который будет отображаться на кнопке.
-        - color (int): Цвет фона кнопки
+        Options:
+        - text (str): The text that will be displayed on the button.
+        - color (int): Button background color
         """
 
         super().__init__()
@@ -75,52 +75,52 @@ class Button(Window):
 
     def render(self):
         """
-        Отображение обьетов
+        Display of values
         """
 
-        # Отрисовка поверхности кнопки
+        # Rendering the Button Surface
         pygame.draw.rect(self.win, self.color, self.rect)
 
-        # Отрисовка текста кнопки
+        # Rendering button text
         self.text_rect = self.text_rendered.get_rect(center=self.rect.center)
         self.win.blit(self.text_rendered, self.text_rect)
 
-       # Проверка события нажатия кнопки только один раз
+       # Checking the button click event only once
         if pygame.mouse.get_pressed()[0] and \
             self.rect.collidepoint(pygame.mouse.get_pos()) and not self.pressed:
             self.pressed = True
             if self.callback:
-                self.callback()  # Вызов функции обратного вызова при нажатии кнопки
+                self.callback()  # Calling a callback function when a button is clicked
         elif not pygame.mouse.get_pressed()[0]:
             self.pressed = False
 
     def connectFunction(self, callback=None):
         """
-        Подключение функции к кнопке.
+        Connecting a function to a button.
         
-        Параметры:
-        - callback (function): Функция, которая будет вызываться при нажатии кнопки.
+        Options:
+        - callback (function): The function that will be called when the button is pressed.
         """
 
         self.callback = callback
 
     def setColor(self, color):
         """
-        Изменение цвета обьекта
+        Changing the color of an object
 
-        Параметры:
-        - color (int): Новый цвет
+        Options:
+        - color (int): New color
         """
 
         self.color = color
 
     def setCoord(self, x, y):
         """
-        Изменение расположения обьекта
+        Changing the location of an object
 
-        Параметры:
-        - x (int): Новая ширина окна.
-        - y (int): Новая высота окна.
+        Options:
+        - x (int): New window width.
+        - y (int): New window height.
         """
 
         self.x = x 
@@ -133,21 +133,21 @@ class Button(Window):
 
     def padding(self, pad):
         """
-        Изменение размера кнопки
+        Changing the size of a button
 
-        Параметры:
-        - pad (int): Не знаю как обьяснить :)
+        Options:
+        - pad (int): I dont know how to explain :)
         """
 
         self.text_rect = self.text.render().get_rect()
 
-        # Обновляем размеры кнопки с учетом отступа
+        # Updating the size of the button taking into account the indentation
         self.width = self.text_rect.width + 10 * pad 
         self.height = self.text_rect.height + 5 * pad
 
-        # Обновляем размеры и положение прямоугольника кнопки
+        # Update the size and position of the button rectangle
         self.rect.width = self.width
         self.rect.height = self.height
 
-        # Перерисовываем кнопку с новыми размерами
+        # Redrawing the button with new sizes
         self.render()
