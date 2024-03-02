@@ -7,7 +7,7 @@
 # - when you press the button, the specified function will occur
 # - display buttons
 #
-# Author: crelgd <decrelgd@gmail.com>
+# Author: crelgd
 #
 # License:
 # MIT License
@@ -114,7 +114,7 @@ class Button(Window):
 
         self.color = color
 
-    def setCoord(self, x, y):
+    def setPos(self, x, y):
         """
         Changing the location of an object
 

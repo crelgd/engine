@@ -4,7 +4,7 @@
 # This code contains the Window class to create a window
 # It provides basic methods for controlling the window, background and display of objects
 #
-# Author: crelgd <decrelgd@gmail.com>
+# Author: crelgd
 #
 # License:
 # MIT License

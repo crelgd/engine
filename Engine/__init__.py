@@ -29,16 +29,18 @@ from .window import Window
 # Objects
 from .label import Label
 from .button import Button
+from .object import Object
 
 # When importing all files, these functions will be imported:
 __all__ = [
     'Window', 
     'Label',
-    'Button'
+    'Button',
+    'Object'
 ]
 
 # Package version
-__version__ = '1.1'
+__version__ = '1.2'
 
 # Checking dependencies
 try:

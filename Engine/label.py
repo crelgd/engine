@@ -6,7 +6,7 @@
 # - text locations
 # - and display text
 #
-# Author: crelgd <decrelgd@gmail.com>
+# Author: crelgd
 #
 # License:
 # MIT License
@@ -79,7 +79,7 @@ class Label(Window):
 
         return self.font.render(self.text, True, (0, 0, 0))
 
-    def setCoord(self, x, y):
+    def setPos(self, x, y):
         """
         Changing the location of an object
 

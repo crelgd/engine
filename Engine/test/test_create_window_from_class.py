@@ -14,6 +14,7 @@ class Main():
         Initializing a window
         Creating a window and text
         """
+        
         self.window = Window() # Window initialization (all default)
         self.label = Label() # Initialize text (all default)
 
