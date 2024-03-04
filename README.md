@@ -1,12 +1,16 @@
 <div align='center'>
-    <h1>engine</h1>
+    <h1>Engine</h1>
 </div>
 
-engine - is a simple and not very user-friendly tool for creating a graphical user interface (GUI) in Python.
+Engine - is a simple and not very user-friendly tool for creating a graphical user interface (GUI) in Python.
+
++ [Installation](#installation)
++ [Usage](#usage)
++ [License](#usage)
 
 ## Installation
 
-To install the "engine" you can use git:
+To install the Engine you can use git:
 
 ```bash
 git clone https://github.com/crelgd/engine
@@ -33,4 +37,4 @@ You can find other examples [here](Engine/examples/).
 
 
 ## License
-engine is distributed under the MIT license. Detailed information can be found in the [LICENSE](LICENSE) file.
+Engine is distributed under the MIT license. Detailed information can be found in the [LICENSE](LICENSE) file.
