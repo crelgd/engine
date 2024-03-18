@@ -1,3 +1,4 @@
+# License:
 # MIT License
 # 
 # Copyright (c) 2024 crelgd
@@ -18,37 +19,36 @@
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# This code contains methods to handle keyboard events
+# It provides basic methods for reading events:
+# - button events
+# - ?mouse button events
+# Coming soon...
+# I'll probably add the cursor position and mouse button events
+#
+# Author: crelgd
 
-import os
+import keyboard as k # import keyboard lib
 
-# Initializing all files
+def ifClicked(button="q"):
+    """
+    check function 'is the button pressed?' 
+    if so, then the action is performed...
 
-# Main class for all objects/methods
-from .window import Window 
+    Options:
+    - button (str): the button that will be tracked
+    """
 
-# Objects
-from .label import Label
-from .button import Button
-from .object import Object
+    buttonPress = k.is_pressed(button)
+    
+    clicked = False  # a variable that will determine 'is the button pressed?'
+    if (buttonPress):   # if buttpn is pressed returns "True"
+        clicked = True
+        return clicked
+    else:
+        clicked = False # if button not pressed returns "False"
+        return clicked
 
-# Events
-from .keyboard import ifClicked
-
-# When importing all files, these functions will be imported:
-__all__ = [
-    'Window', 
-    'Label',
-    'Button',
-    'Object',
-
-    'ifClicked'
-]
-
-# Package version
-__version__ = '1.2'
-
-# Checking dependencies
-try:
-    import pygame
-except ImportError:
-    raise ImportError("Pygame library is required to use this package.")
+    # I don't know why I wrote this :/
