@@ -61,6 +61,7 @@ class Window:
 
         # Create a window with dimensions self.x, self.y
         self.win = display.set_mode((self.x, self.y))
+        display.set_caption(winTitle)
 
         # Load a background image and resize it to fit the window
         self.background = transform.scale(image.load("bg.png"), (self.x, self.y))
