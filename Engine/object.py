@@ -36,12 +36,6 @@ import os
 
 from .window import Window
 
-# We get the path to the directory where this script is located
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Change the current working directory to the directory with the file
-os.chdir(os.path.join(script_dir, 'res'))
-
 # Initializing pygame
 pygame.init()
 
@@ -50,7 +44,7 @@ class Object(Window):
     Class for creating and managing objects
     """
 
-    def __init__(self, img='obj.png'):
+    def __init__(self, img=None):
         """
         Initializing the object.
 
@@ -60,7 +54,21 @@ class Object(Window):
 
         super().__init__()
 
-        self.img = img # img
+        print("Currently directory: ", os.getcwd())
+
+        if img is None:
+            # We get the path to the directory where this script is located
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            res_dir = os.path.join(script_dir, "res")
+
+            # Change the current working directory to the directory with the file
+            os.chdir(res_dir)
+
+            self.img = "obj.png"
+        else:
+            self.img = img # img
+
+        print("Currently directory: ", os.getcwd())
 
         # Obj size
         self.x = 30

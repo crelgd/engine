@@ -70,6 +70,7 @@ class Button(Window):
         self.width = self.text_rect.width + 10
         self.height = self.text_rect.height + 5
         self.color = color
+        self.callback = None
 
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
 

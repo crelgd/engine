@@ -32,18 +32,12 @@
 from pygame import *
 import os
 
-# We get the path to the directory where this script is located
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Change the current working directory to the directory with the file
-os.chdir(os.path.join(script_dir, 'res'))
-
 class Window:
     """
     A class for creating and managing a game window.
     """
 
-    def __init__(self, winTitle='Engine'):
+    def __init__(self, winTitle='Engine', icon=None, bg=None):
         """
         Initializing the window.
 
@@ -63,11 +57,30 @@ class Window:
         self.win = display.set_mode((self.x, self.y))
         display.set_caption(winTitle)
 
-        # Load a background image and resize it to fit the window
-        self.background = transform.scale(image.load("bg.png"), (self.x, self.y))
+        if bg is None:
+            # We get the path to the directory where this script is located
+            script_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Setting the window icon
-        display.set_icon(image.load('ico.png'))
+            # Change the current working directory to the directory with the file
+            os.chdir(os.path.join(script_dir, 'res'))
+
+            # Load a background image and resize it to fit the window
+            self.background = transform.scale(image.load("bg.png"), (self.x, self.y))
+        else:
+            self.background = transform.scale(image.load(bg), (self.x, self.y))
+
+        if icon is None:
+            # We get the path to the directory where this script is located
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+
+            # Change the current working directory to the directory with the file
+            os.chdir(os.path.join(script_dir, 'res'))
+
+            # Setting the window icon
+            display.set_icon(image.load('ico.png'))
+        else:
+            # Setting the window icon
+            display.set_icon(image.load(icon))
 
     def setTitle(self, title):
         """
